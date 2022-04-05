@@ -61,18 +61,10 @@ class _FoodCardState extends State<FoodCard> with SingleTickerProviderStateMixin
       height: MediaQuery.of(context).size.width / 2.5,
       child: ClipRRect(
         borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
-        child: Image.network(
-          '/uploads/${food.images[0]}',
+        child: Image.asset(
+          'images/${food.images[0]}',
           fit: BoxFit.cover,
-          loadingBuilder: (context, Widget child, ImageChunkEvent progress) {
-            if (progress == null) return child;
-            return Center(
-              child: Padding(
-                padding: EdgeInsets.all(32),
-                child: CircularProgressIndicator(value: progress.expectedTotalBytes != null ? progress.cumulativeBytesLoaded / progress.expectedTotalBytes : null),
-              ),
-            );
-          },
+
         ),
       ),
     );
@@ -88,7 +80,7 @@ class _FoodCardState extends State<FoodCard> with SingleTickerProviderStateMixin
             food.name,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
-            style: titleStyle,
+            style: title1Style,
           ),
           Text(
             food.description,
@@ -134,7 +126,7 @@ class _FoodCardState extends State<FoodCard> with SingleTickerProviderStateMixin
         children: <Widget>[
           Text(
             '\$ ${food.price}',
-            style: titleStyle,
+            style: title1Style,
           ),
           Card(
             margin: EdgeInsets.only(right: 0),

@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           Text('MENU', style: headerStyle),
           Spacer(),
-          IconButton(icon: Icon(Icons.person), onPressed: viewProfile),
+          // IconButton(icon: Icon(Icons.person), onPressed: viewProfile),
           IconButton(
               icon: Icon(Icons.refresh),
               onPressed: () {
@@ -157,14 +157,14 @@ class _MyHomePageState extends State<MyHomePage> {
             physics: BouncingScrollPhysics(),
             children: [
               FoodCard(Food(
-                  name: 'jhgfd',
+                  name: 'Salad recipes',
                   id: '1',
-                  images: ['sdfg'],
+                  images: ['food.png'],
                   rating: 5,
                   price: 20,
                   v: 1,
-                  shop: Shop(id: '1',name: 'savbn',email: 'asfewgrehttwd'),
-                  description: 'hbjhnlkm;l'))
+                  shop: Shop(id: '1',name: 'Salad',email: 'asfewgrehttwd'),
+                  description: 'Serve this vibrant salad with blue cheese as a light supper or side dish. Kale or chard will also work in place of the spring greens'))
             ],
           );
           // } else if (snapshot.hasError) {
