@@ -5,25 +5,13 @@ import 'package:flutter/painting.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:resturant/constants/values.dart';
-import 'package:resturant/pages/home_page.dart';
+import 'package:resturant/pages/menu_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key key}) : super(key: key);
 
   @override
   State<MainPage> createState() => _MainPageState();
-}
-
-void setPermissions() async {
-  if (await Permission.contacts.request().isGranted) {
-    // Either the permission was already granted before or the user just granted it.
-  }
-
-// You can request multiple permissions at once.
-  Map<Permission, PermissionStatus> statuses = await [
-    Permission.location,
-  ].request();
-  print(statuses[Permission.location]);
 }
 
 class _MainPageState extends State<MainPage> {
@@ -38,6 +26,14 @@ class _MainPageState extends State<MainPage> {
   void initState() {
     setPermissions();
     super.initState();
+  }
+
+  void setPermissions() async {
+    if (await Permission.contacts.request().isGranted) {}
+    Map<Permission, PermissionStatus> statuses = await [
+      Permission.location,
+    ].request();
+    print(statuses[Permission.location]);
   }
 
   @override
@@ -90,7 +86,6 @@ class _MainPageState extends State<MainPage> {
                               icon: customIcon));
                           setState(() {});
                         });
-
                       },
                     ),
                   ),
@@ -105,7 +100,11 @@ class _MainPageState extends State<MainPage> {
                 Expanded(
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage(),));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MenuPage(),
+                          ));
                     },
                     child: Card(
                       color: mainColor,
@@ -123,9 +122,14 @@ class _MainPageState extends State<MainPage> {
                               'images/menu.png',
                               width: MediaQuery.of(context).size.width / 7,
                             ),
-                            SizedBox(height: 8,),
+                            SizedBox(
+                              height: 8,
+                            ),
                             Center(
-                              child: Text('Menu',style: titleStyle,),
+                              child: Text(
+                                'Menu',
+                                style: titleStyle,
+                              ),
                             ),
                           ],
                         ),
@@ -150,9 +154,14 @@ class _MainPageState extends State<MainPage> {
                             'images/booking.png',
                             width: MediaQuery.of(context).size.width / 7,
                           ),
-                          SizedBox(height: 8,),
+                          SizedBox(
+                            height: 8,
+                          ),
                           Center(
-                            child: Text('Booking',style: titleStyle,),
+                            child: Text(
+                              'Booking',
+                              style: titleStyle,
+                            ),
                           ),
                         ],
                       ),

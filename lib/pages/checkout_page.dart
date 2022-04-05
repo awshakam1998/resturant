@@ -161,8 +161,8 @@ class _CheckOutPageState extends State<CheckOutPage> with SingleTickerProviderSt
           children: <Widget>[
             ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(6)),
-              child: Image.network(
-                '/uploads/${cartModel.food.images[0]}',
+              child: Image.asset(
+                'images/${cartModel.food.images[0]}',
                 fit: BoxFit.cover,
                 width: 100,
                 height: 100,
@@ -178,7 +178,7 @@ class _CheckOutPageState extends State<CheckOutPage> with SingleTickerProviderSt
                     height: 45,
                     child: Text(
                       cartModel.food.name,
-                      style: titleStyle,
+                      style: title1Style,
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -225,7 +225,7 @@ class _CheckOutPageState extends State<CheckOutPage> with SingleTickerProviderSt
                     width: 70,
                     child: Text(
                       '\$ ${cartModel.food.price}',
-                      style: titleStyle,
+                      style: title1Style,
                       textAlign: TextAlign.end,
                     ),
                   ),

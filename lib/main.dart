@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:resturant/model/cart_model.dart';
-import 'package:resturant/pages/home_page.dart';
+import 'package:resturant/pages/menu_page.dart';
 import 'package:provider/provider.dart';
 import 'package:resturant/pages/main_page.dart';
 

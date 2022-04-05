@@ -10,33 +10,15 @@ import 'package:resturant/widgets/cart_bottom_sheet.dart';
 import 'package:resturant/widgets/food_card.dart';
 import 'package:provider/provider.dart';
 
-class MyHomePage extends StatefulWidget {
+class MenuPage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MenuPageState createState() => _MenuPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MenuPageState extends State<MenuPage> {
   int value = 1;
 
   Future<FoodModel> foodModels;
-
-  // Future<FoodModel> fetchAllFoods() async {
-  //   var dio = Dio();
-  //   dio.options.connectTimeout = 5000;
-  //   print('krappa');
-  //   try {
-  //     var response = await dio.get('$BASE_URL/api/foods');
-  //     return FoodModel.fromJson(response.data);
-  //   } catch (e) {
-  //     if (e is DioError) {
-  //       print("Dio Error: " + e.message);
-  //       throw SocketException(e.message);
-  //     } else {
-  //       print("Type error: " + e.toString());
-  //       throw Exception(e.toString());
-  //     }
-  //   }
-  // }
 
   showCart() {
     showModalBottomSheet(
@@ -44,18 +26,6 @@ class _MyHomePageState extends State<MyHomePage> {
       context: context,
       builder: (context) => CartBottomSheet(),
     );
-  }
-
-  viewProfile() {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => UserProfilePage()),
-    );
-  }
-
-  @override
-  void initState() {
-    // foodModels = fetchAllFoods();
-    super.initState();
   }
 
   @override
@@ -66,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: <Widget>[
             buildAppBar(),
-            buildFoodFilter(),
+            buildFoodCategory(),
             Divider(),
             buildFoodList(),
           ],
@@ -85,7 +55,6 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           Text('MENU', style: headerStyle),
           Spacer(),
-          // IconButton(icon: Icon(Icons.person), onPressed: viewProfile),
           IconButton(
               icon: Icon(Icons.refresh),
               onPressed: () {
@@ -115,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget buildFoodFilter() {
+  Widget buildFoodCategory() {
     return Container(
       height: 50,
       //color: Colors.red,
@@ -163,8 +132,49 @@ class _MyHomePageState extends State<MyHomePage> {
                   rating: 5,
                   price: 20,
                   v: 1,
-                  shop: Shop(id: '1',name: 'Salad',email: 'asfewgrehttwd'),
-                  description: 'Serve this vibrant salad with blue cheese as a light supper or side dish. Kale or chard will also work in place of the spring greens'))
+                  shop: Shop(id: '1', name: 'Salad', email: 'asfewgrehttwd'),
+                  description:
+                      'Serve this vibrant salad with blue cheese as a light supper or side dish. Kale or chard will also work in place of the spring greens')),
+              FoodCard(Food(
+                  name: 'Salad recipes',
+                  id: '1',
+                  images: ['food.png'],
+                  rating: 5,
+                  price: 20,
+                  v: 1,
+                  shop: Shop(id: '1', name: 'Salad', email: 'asfewgrehttwd'),
+                  description:
+                      'Serve this vibrant salad with blue cheese as a light supper or side dish. Kale or chard will also work in place of the spring greens')),
+              FoodCard(Food(
+                  name: 'Salad recipes',
+                  id: '1',
+                  images: ['food.png'],
+                  rating: 5,
+                  price: 20,
+                  v: 1,
+                  shop: Shop(id: '1', name: 'Salad', email: 'asfewgrehttwd'),
+                  description:
+                      'Serve this vibrant salad with blue cheese as a light supper or side dish. Kale or chard will also work in place of the spring greens')),
+              FoodCard(Food(
+                  name: 'Salad recipes',
+                  id: '1',
+                  images: ['food.png'],
+                  rating: 5,
+                  price: 20,
+                  v: 1,
+                  shop: Shop(id: '1', name: 'Salad', email: 'asfewgrehttwd'),
+                  description:
+                      'Serve this vibrant salad with blue cheese as a light supper or side dish. Kale or chard will also work in place of the spring greens')),
+              FoodCard(Food(
+                  name: 'Salad recipes',
+                  id: '1',
+                  images: ['food.png'],
+                  rating: 5,
+                  price: 20,
+                  v: 1,
+                  shop: Shop(id: '1', name: 'Salad', email: 'asfewgrehttwd'),
+                  description:
+                      'Serve this vibrant salad with blue cheese as a light supper or side dish. Kale or chard will also work in place of the spring greens')),
             ],
           );
           // } else if (snapshot.hasError) {
